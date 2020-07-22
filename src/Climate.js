@@ -1,7 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React, { useEffect, useState } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 import openwheather from './api/openwheather'
+
+import TempDia from './components/TempDia'
 
 export default function Climate() {
     const [data, setData] = useState({})
@@ -48,12 +49,16 @@ export default function Climate() {
 
             const obj = {
                 dataHora: `${day}/${month}/${year} - ${hours}:${minutes}`,
-                temperatura: `${Math.trunc(response.data.current.temp)}°C`,
-                sensacao: `${Math.trunc(response.data.current.feels_like)}°C`,
-                humidade: `${response.data.current.humidity}%`,
-                descricao: `${response.data.current.weather[0].description}`,
-                iconID: `${response.data.current.weather[0].icon}`
+                temperatura: Math.trunc(response.data.current.temp),
+                sensacao: Math.trunc(response.data.current.feels_like),
+                humidade: response.data.current.humidity,
+                descricao: response.data.current.weather[0].description,
+                clima: response.data.current.weather[0].main,
+                vento: response.data.current.wind_speed,
+                temp_min: response.data.daily[0].temp.min,
+                temp_max: response.data.daily[0].temp.max,
             }
+            console.log(obj.clima)
             setData(obj)
             setLoading(false)
         }
@@ -64,21 +69,21 @@ export default function Climate() {
         return (
             <View style={styles.container}>
                 <Text>Loading...</Text>
-                <StatusBar style="auto" />
             </View>
         )
     } else {
         return (
-          <View style={styles.container}>
-            <Text>{data.dataHora}</Text>
-            <Text>Tempo: {data.descricao}</Text>
-            <Text>Temperatura: {data.temperatura}</Text>
-            <Text>Sensação: {data.sensacao}</Text>
-            <Text>Humidade: {data.humidade}</Text>
-            
-            <Image style={styles.image} source={{uri: `http://openweathermap.org/img/wn/${data.iconID}.png`}}/>
-            <StatusBar style="auto" />
-          </View>
+            <TempDia 
+                cidade="Itararé, SP" 
+                clima={data.clima}
+                descricao={data.descricao}
+                temp={data.temperatura} 
+                temp_min={data.temp_min} 
+                temp_max={data.temp_max} 
+                humidade={data.humidade} 
+                vento={data.vento}
+                horario="dia" 
+            />
         )
     }
 
