@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Text, StyleSheet, ImageBackground, View } from 'react-native'
-import { StatusBar, setStatusBarBackgroundColor, setStatusBarStyle } from 'expo-status-bar'
+import { StatusBar, setStatusBarBackgroundColor } from 'expo-status-bar'
 import { Entypo } from '@expo/vector-icons'
 
 export default function TempDia(props) {
