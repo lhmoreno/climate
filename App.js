@@ -1,5 +1,5 @@
 import React from 'react'
-import Climate from './src/Climate'
+import Routes from './src/routes'
 import { useFonts, JosefinSans_700Bold, JosefinSans_300Light } from '@expo-google-fonts/josefin-sans'
 import { AppLoading } from 'expo'
 
@@ -14,6 +14,6 @@ export default function App() {
   }
 
   return (
-    <Climate />
+    <Routes />
   )
 }
