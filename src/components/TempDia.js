@@ -98,26 +98,26 @@ export default function TempDia(props) {
             style={styles.container}
             resizeMode="stretch"
         >
-            <StatusBar style="light" translucent={false}/>
+            <StatusBar style="light" translucent={false} backgroundColor={'black'}/>
 
             <View style={styles.primeiro}>
                 <View style={styles.local}>
                     <Entypo name="location-pin" size={20} color="white"/>
                     <Text style={styles.cidade}>{props.cidade}</Text>
                 </View>
-                <Text style={styles.temp}>{props.temp}°</Text>
+                <Text style={styles.temp}>{props.temp}</Text>
                 <Text style={styles.clima}>{props.descricao}</Text>
             </View>
 
             <View style={styles.segundo}>
                 <View style={styles.row}>
                     <View style={styles.dado}>
-                        <Text style={styles.dados}>{props.temp_min}°</Text>
+                        <Text style={styles.dados}>{props.temp_min}</Text>
                         <Text style={styles.descricao}>MIN</Text>
                     </View>
 
                     <View style={styles.dado}>
-                        <Text style={styles.dados}>{props.temp_max}°</Text>
+                        <Text style={styles.dados}>{props.temp_max}</Text>
                         <Text style={styles.descricao}>MAX</Text>
                     </View>
                 </View>
@@ -125,12 +125,12 @@ export default function TempDia(props) {
                 <View style={styles.row}>
                     <View style={styles.dado}>
                         <Text style={styles.dados}>{props.humidade}%</Text>
-                        <Text style={styles.descricao}>HUMIDADE</Text>
+                        <Text style={styles.descricao}>{props.lang === 'Português' ? 'HUMIDADE' : 'HUMIDITY'}</Text>
                     </View>
 
                     <View style={styles.dado}>
-                        <Text style={styles.dados}>{props.vento} m/s</Text>
-                        <Text style={styles.descricao}>VENTO</Text>
+                        <Text style={styles.dados}>{props.vento}</Text>
+                        <Text style={styles.descricao}>{props.lang === 'Português' ? 'VENTO' : 'WIND'}</Text>
                     </View>
                 </View>
             </View>
