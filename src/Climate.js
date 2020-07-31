@@ -134,12 +134,12 @@ export default function Climate({ navigation }) {
         if (!permission) {
             return (
                 <View style={{flex:1, alignItems: 'center', justifyContent: 'center'}}>
-                    <Text>Precisamos de sua localização</Text>
+                    <Text>Precisamos de sua localização!</Text>
                 </View>
             )
         } else {
             return (
-                <View style={styles.container}>
+                <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                     <Text>Loading...</Text>
                 </View>
             )

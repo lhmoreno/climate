@@ -180,7 +180,7 @@ export default function Config({ navigation }) {
 
   if (loading) {
     return (
-      <View>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Loading...</Text>
       </View>
     )
